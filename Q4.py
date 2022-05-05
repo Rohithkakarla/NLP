@@ -1,11 +1,12 @@
 from nltk.corpus import webtext
+import os
 
 # use to find bigrams, which are pairs of words
 from nltk.collocations import BigramCollocationFinder
 from nltk.metrics import BigramAssocMeasures
 
 # Loading the data
-words = [w.lower() for w in webtext.words('/Users/itn.rohith.kakarla/Downloads/B180039CS_NLP_LabAssignment/file3.txt')]
+words = [w.lower() for w in webtext.words(os.getcwd()+'/file3.txt')]
 
 biagram_collocation = BigramCollocationFinder.from_words(words)
 biagram_collocation.nbest(BigramAssocMeasures.likelihood_ratio, 15)
